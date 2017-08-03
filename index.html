@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ToDoApp">
+
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <link href="styles.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <title>To Do : An Emily Blanchett Application</title>
+</head>
+
+<body>
+    <div ng-controller="toDoListCrtl" class="container hero is-medium is-primary" id="maindiv">
+        <div>
+            <h1 class="title is-1 has-text-centered">My Todo List</h1>
+            <form name="formy1" ng-submit="addTodoItem()" class="has-text-centered">
+                <label class="label"></label>
+                <input class="input is-medium width-50 mrg-tb-10" type="text" name="title" ng-model="newTask" required placeholder="What do I have to do?">
+                <input class="input is-medium width-50 mrg-side-10" type="text" name="date" ng-model="newDate" required placeholder="When?">
+                <br>
+                <button ng-disabled="formy1.$invalid" class="button is-medium mrg-tb-10"> Go!</button>
+                <button ng-click="clearCompleted()" class="button is-white is-outlined is-medium mrg-tb-10">Clear Completed</button>
+                <p class="subtitle">Click on your task to edit!</p>
+            </form>
+            
+            <div class="has-text-centered" id="listDiv">
+               <div class="level is-mobile" style="background-color:white;" id="list-header">
+
+                   <div class="level-left pddng-10">
+                       <p class="is-primary title is-4" style="color:#00d1b2;">Task</p>
+                   </div>
+                   <div class="level-right pddng-10">
+                       <p class="is-primary title is-4" style="color:#00d1b2;">Date</p> 
+                   </div>
+               </div>
+               
+                <ul class="has-text-centered">
+                    <li class="subtitle" ng-repeat="todo in todoitemsList | orderBy: 'done' track by $index">
+                           <div>
+                            <form class="level container" name="formy2" ng-show="editing" ng-submit="saveEditTodo(); editing = false" style="width:inherit; position: relative; ">
+                               <div class="level-left pddng-10">
+                                <label style="display:none;">Title</label>
+                                <input class="input is-small mrg-tb-5" type="text" ng-model="todo.title" placeholder="Name" ng-required />
+                                <br>
+                                </div>
+                                <div class="level-right pddng-10">
+                                <label style="display:none;">Date</label><br>
+                                <input class="input is-small mrg-tb-5" type="text" ng-model="todo.date" placeholder="Name" ng-required />
+                                <br>
+                                <button class="button is-small width-30" type="submit" style="margin-left:10px;">Save</button>
+                                </div>
+                                
+                            </form>
+                        </div>
+                        <div class="level is-mobile">
+                            <div class="level-left pddng-10" style="cursor:pointer; padding-top:0;">
+                                <div class="level-item">
+                                    <input type="checkbox" ng-model="todo.done" class="checkbox" id="doneCheck" ng-hide="editing"/>
+                                </div>
+                                    <span class="level-left" ng-hide="editing" ng-click="editing = true" ng-class="{'done':todo.done}">{{todo.title}}
+                                    </span>
+                            </div>
+                            <div class="level-right pddng-10" style="cursor:pointer; padding-top:0;">
+                                <span ng-hide="editing" ng-click="editing = true" ng-class="{'done':todo.done}">{{todo.date}}</span>
+                            </div>
+                        </div>
+                    
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <footer class="title is-5 has-text-centered">
+           <p>Copyright 2017 © Emily Blanchett</p>
+       </footer>
+    </div>
+       
+        
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="app.js"></script>
+    <script src="localstorage.js"></script>
+</body>
+
+</html>

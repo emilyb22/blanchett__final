@@ -1,0 +1,56 @@
+/****************************************
+        Utils 
+****************************************/
+.width-50{
+    width:50%;
+}
+.width-30{
+    width:30%;
+}
+.width-10{
+    width:10%;
+}
+.mrg-tb-10{
+    margin: 10px 0;
+}
+.mrg-tb-5{
+    margin: 5px 0;
+}
+.pddng-5{
+    padding:5px;
+} 
+.pddng-10{
+    padding:10px;
+}
+
+/***************************************
+        Template
+***************************************/
+#maindiv{
+        height: 100vh;
+}
+/**************************************
+        Individual Styles
+***************************************/
+.done{
+    text-decoration: line-through;
+    color: red;
+}
+#listDiv{
+    border:white solid 1px;
+    width:65%;
+    margin: 0 auto; 
+    margin-top:30px;
+    margin-bottom:20px;
+    border-radius:3px;
+}
+
+/**************************************
+            Media Queries
+***************************************/
+
+@media only screen and (max-width: 690px) {
+    #listDiv{
+    width:95%;
+}
+}

@@ -12,16 +12,13 @@ angular
 .controller('contactsCtrl', function($scope, $firebaseObject, $firebaseArray){
 	const dbRef = firebase.database().ref().child('contacts')
     
-    $scope.contactList = $firebaseArray(dbRef)
-    
-    $scope.contact = $firebaseObject(dbRef.child('-KoO9a3E2avl-qdnxNU7'))
-    
+    $scope.contactList = $firebaseArray(dbRef)    
     this.getBlankContact = () => ({
         fname:'',
         lname: '',
         phone: '',
-        email: '',
-        birthday: '',
+        subject: '',
+        priority: '',
         isCompleted: false
     })
     

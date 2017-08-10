@@ -27,7 +27,7 @@
         Template
 ***************************************/
 #maindiv{
-        height: 100vh;
+        height: 100%;
 }
 /**************************************
         Individual Styles
@@ -45,6 +45,52 @@
     border-radius:3px;
 }
 
+.todo_input_header {
+    display: block;
+    border: none;
+    width: 40%;
+    padding-left:20px;
+    font-size: 1.5rem;
+    background-color: #00d1b2;
+    border-color: #dbdbdb;
+    border-bottom: 1px solid transparent;
+    color: #fff;
+    font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.todo_input_body {
+    padding: 8px;
+    display: block;
+    border: none;
+    border-bottom: 1px solid transparent;
+    width: 100%;
+    padding-left:40px;
+    font-size: 1rem;
+    background-color: #00d1b2;;
+    border-color: #dbdbdb;
+    color: #fff;
+    font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.todo_input_date{
+     padding: 8px;
+    display: block;
+    border: none;
+    border-bottom: 1px solid transparent;
+    width: 100%;
+    text-align: right;
+    font-size: 1rem;
+    background-color: #00d1b2;;
+    border-color: #dbdbdb;
+    color: #fff;
+    font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.done{
+    text-decoration: line-through;
+    color: red;
+}
+
 /**************************************
             Media Queries
 ***************************************/
@@ -53,4 +99,10 @@
     #listDiv{
     width:95%;
 }
+}
+
+@media only screen and (max-width: 500px) {
+    #maindiv {
+        background-color: lightblue;
+    }
 }

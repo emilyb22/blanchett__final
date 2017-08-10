@@ -13,25 +13,30 @@
     <div ng-controller="contactsCtrl" class="container hero is-medium is-primary" id="maindiv">
         <div>
             <h1 class="title is-1 has-text-centered">My Todo List</h1>
-               <form name="formy_new" ng-submit="addContact()" style="" id="new_contact">
-                    <input class="input is-info" type="text" ng-model="newContact.fname" placeholder="First Name" style="margin-bottom:10px;" required>
-                    <input class="input is-info" type="text" ng-model="newContact.lname" placeholder="Last Name" style="margin-bottom:10px;" required>
-                    <input class="input is-info" type="text" ng-model="newContact.phone" placeholder="Phone #" style="margin-bottom:10px;" required>
-                    <input class="input is-info" type="text" ng-model="newContact.email" placeholder="E-mail" style="margin-bottom:10px;" required>
-                    <input class="input is-info" type="text" ng-model="newContact.birthday" placeholder="Birthday" style="margin-bottom:10px;" required>
-                    <input ng-disabled="formy_new.$invalid" type="submit" value="Add" class="button"> </form>
+               <form name="formy_new" ng-submit="addContact()" style="" id="new_contact" class="has-text-centered">
+                    <input class="input is-medium width-50 mrg-tb-10 mobile-input" type="text" ng-model="newContact.fname" placeholder="Title" style="margin-bottom:10px;" required>
+                    <textarea class="input is-medium width-50 mrg-tb-10" type="text" ng-model="newContact.lname" placeholder="Description" style="margin-bottom:10px;" required></textarea>
                     
-                    
-                    <div>
-                      <ul>
-                         <li ng-repeat="contact in contactList track by contact.$id">
-                       <form name="formy_edit">
-                       <input type="text" ng-model="contact.fname">
-                        </form> 
-                          </li>
-                        </ul>
-                    </div>
-            
+                    <input class="input is-medium width-50 mrg-tb-10" type="text" ng-model="newContact.phone" placeholder="Due Date" style="margin-bottom:10px;" required> 
+                         <br>
+                          <select class="select is-medium" ng-model="newContact.subject">
+                            <option>Select subject</option>
+                            <option value="work">Work</option>
+                            <option value="home">Home</option>
+                            <option value="school">School</option>
+                          </select>
+                        
+                   <br>
+                   <div>
+                   <h2>Priority</h2>
+                    <input type="radio" ng-model="newContact.priority" name="priority" value="!!!" id="high">High
+                     <input type="radio" ng-model="newContact.priority" name="priority" value="!!" id="medium">Medium
+                     <input type="radio" ng-model="newContact.priority" name="priority" value="!" id="low">Low
+                   </div>
+                   
+                    <input ng-disabled="formy_new.$invalid" type="submit" value="Add" class="button is-medium mrg-tb-10">
+                     </form>
+            <h2>Home</h2>
             <div class="has-text-centered" id="listDiv">
                <div class="level is-mobile" style="background-color:white;" id="list-header">
 
@@ -44,7 +49,84 @@
                </div>
                
                 <ul class="has-text-centered">
-                    
+                    <li ng-repeat="contact in contactList | filter:{subject:'home'} | orderBy: 'isCompleted'" ng-class="{'done':contact.isCompleted}">
+                       <form name="formy_edit" class="level container" style="width:inherit; position: relative; ">
+                       <div class="level-left pddng-10">
+                       <input class="checkbox" type="checkbox" ng-model="contact.isCompleted" id="doneCheck">
+                       
+                       <input type="text" ng-model="contact.fname" class="todo_input_header">
+                          <input type="text" ng-model="contact.lname" class="todo_input_body">
+                           </div>
+                           <div class="level-right pddng-10">
+                       <input type="text" ng-model="contact.phone" class="todo_input_date">
+                               <p>{{contact.subject}}</p><p>{{contact.priority}}</p>    
+                          <a class="" ng-click="removeContact(contact)" style="color:red;">Delete</a>
+                          <button class="button" ng-click="saveContact(contact)" ng-disabled="!formy_edit.$dirty || formy_edit.$submitted" id="save_button">Save</button> 
+                           </div>
+                        </form> 
+                          </li>
+                </ul>
+            </div>
+            <h2>School</h2>
+             <div class="has-text-centered" id="listDiv">
+               <div class="level is-mobile" style="background-color:white;" id="list-header">
+
+                   <div class="level-left pddng-10">
+                       <p class="is-primary title is-4" style="color:#00d1b2;">Task</p>
+                   </div>
+                   <div class="level-right pddng-10">
+                       <p class="is-primary title is-4" style="color:#00d1b2;">Date</p> 
+                   </div>
+               </div>
+               
+                <ul class="has-text-centered">
+                    <li ng-repeat="contact in contactList | filter:{subject:'school'} | orderBy: 'isCompleted'" ng-class="{'done':contact.isCompleted}">
+                       <form name="formy_edit" class="level container" style="width:inherit; position: relative; ">
+                       <div class="level-left pddng-10">
+                       <input class="checkbox" type="checkbox" ng-model="contact.isCompleted" id="doneCheck">
+                       
+                       <input type="text" ng-model="contact.fname" class="todo_input_header">
+                          <input type="text" ng-model="contact.lname" class="todo_input_body">
+                           </div>
+                           <div class="level-right pddng-10">
+                       <input type="text" ng-model="contact.phone" class="todo_input_date">
+                               <p>{{contact.subject}}</p><p>{{contact.priority}}</p>     
+                          <a class="" ng-click="removeContact(contact)" style="color:red;">Delete</a>
+                          <button class="button" ng-click="saveContact(contact)" ng-disabled="!formy_edit.$dirty || formy_edit.$submitted" id="save_button">Save</button> 
+                           </div>
+                        </form> 
+                          </li>
+                </ul>
+            </div>
+                  <h2>Work</h2>
+             <div class="has-text-centered" id="listDiv">
+               <div class="level is-mobile" style="background-color:white;" id="list-header">
+
+                   <div class="level-left pddng-10">
+                       <p class="is-primary title is-4" style="color:#00d1b2;">Task</p>
+                   </div>
+                   <div class="level-right pddng-10">
+                       <p class="is-primary title is-4" style="color:#00d1b2;">Date</p> 
+                   </div>
+               </div>
+               
+                <ul class="has-text-centered">
+                    <li ng-repeat="contact in contactList | filter:{subject:'work'} | orderBy: 'isCompleted'" ng-class="{'done':contact.isCompleted}">
+                       <form name="formy_edit" class="level container" style="width:inherit; position: relative; ">
+                       <div class="level-left pddng-10">
+                       <input class="checkbox" type="checkbox" ng-model="contact.isCompleted" id="doneCheck">
+                       
+                       <input type="text" ng-model="contact.fname" class="todo_input_header">
+                          <input type="text" ng-model="contact.lname" class="todo_input_body">
+                           </div>
+                           <div class="level-right pddng-10">
+                       <input type="text" ng-model="contact.phone" class="todo_input_date">
+                               <p>{{contact.subject}}</p><p>{{contact.priority}}</p>     
+                          <a class="" ng-click="removeContact(contact)" style="color:red;">Delete</a>
+                          <button class="button" ng-click="saveContact(contact)" ng-disabled="!formy_edit.$dirty || formy_edit.$submitted" id="save_button">Save</button> 
+                           </div>
+                        </form> 
+                          </li>
                 </ul>
             </div>
         </div>

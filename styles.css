@@ -16,6 +16,17 @@
 .mrg-tb-5{
     margin: 5px 0;
 }
+.mrg-lft-10{
+    margin-left: 10px;;
+}
+
+.mrg-btt-5{
+    margin-bottom: 5px;
+}
+
+.mrg-btt-20{
+    margin-bottom: 20px;
+}
 .pddng-5{
     padding:5px;
 } 
@@ -29,6 +40,12 @@
 #maindiv{
         height: 100%;
 }
+
+.level:not(:last-child) {
+    margin-bottom: 5px;
+}
+
+
 /**************************************
         Individual Styles
 ***************************************/
@@ -46,25 +63,18 @@
 }
 
 .todo_input_header {
-    display: block;
     border: none;
-    width: 40%;
-    padding-left:20px;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     background-color: #00d1b2;
     border-color: #dbdbdb;
-    border-bottom: 1px solid transparent;
     color: #fff;
     font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .todo_input_body {
     padding: 8px;
-    display: block;
     border: none;
-    border-bottom: 1px solid transparent;
     width: 100%;
-    padding-left:40px;
     font-size: 1rem;
     background-color: #00d1b2;;
     border-color: #dbdbdb;
@@ -76,14 +86,21 @@
      padding: 8px;
     display: block;
     border: none;
-    border-bottom: 1px solid transparent;
     width: 100%;
     text-align: right;
-    font-size: 1rem;
+    font-size: 1.4rem;
     background-color: #00d1b2;;
     border-color: #dbdbdb;
     color: #fff;
     font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.edit-buttons{
+    text-align: right;
+}
+
+.todo-list{
+    border-bottom: 1px solid white;
 }
 
 .done{
@@ -95,9 +112,107 @@
     height:100px;
 }
 
-input[name=priority] {    
-margin-left: 40px;
-}    
+.priority{
+    display: inline;
+    color: red;
+    font-weight: bold;
+    font-size: larger;
+    
+}
+
+table td, table th {
+    vertical-align: initial;
+}
+
+/**************************************
+            Select Box
+***************************************/
+#select_box{
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    display: inline-flex;
+    height: 2.25em;
+    justify-content: flex-start;
+    line-height: 1.5;
+    position: relative;
+    vertical-align: top;
+    background-color: white;
+    border-color: #dbdbdb;
+    color: #363636;
+    cursor: pointer;
+
+
+}
+/**************************************
+            Radio Buttons
+***************************************/
+.control-group {
+	margin: 10px;
+	vertical-align: top;
+}
+
+.control {
+	font-size: 20px;
+	display: block;
+	margin-bottom: 15px;
+	padding-left: 40px;
+	cursor: pointer;
+    
+}
+
+.control input {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+}
+
+.control__indicator {
+	position: absolute;
+	top: 2px;
+	left: 0;
+	width: 30px;
+	height: 30px;
+	background: #e6e6e6;
+}
+
+.control--radio .control__indicator {
+	border-radius: 50%;
+}
+
+/* Hover and focus states */
+.control:hover input ~ .control__indicator,
+.control input:focus ~ .control__indicator {
+	background: #ccc;
+}
+
+/* Checked state */
+.control input:checked ~ .control__indicator {
+	background: #007F6D;
+}
+
+/* Check mark */
+.control__indicator:after {
+	position: absolute;
+	display: none;
+	content: '';
+}
+
+/* Show check mark */
+.control input:checked ~ .control__indicator:after {
+	display: block;
+}
+
+
+/* Radio button inner circle */
+.control--radio .control__indicator:after {
+	top: 10px;
+	left: 10px;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background: #fff;
+}
 
 /**************************************
             Media Queries
@@ -117,4 +232,7 @@ margin-left: 40px;
 input[name=priority] {    
 margin-left: 10px;
 }    
+#select_box{
+        width: 90vw;
+    }
 }

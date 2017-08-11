@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
     <link href="styles.css" rel="stylesheet">
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do : An Emily Blanchett Application</title>
 </head>
 
@@ -15,9 +16,9 @@
             <h1 class="title is-1 has-text-centered">My Todo List</h1>
                <form name="formy_new" ng-submit="addContact()" style="" id="new_contact" class="has-text-centered">
                     <input class="input is-medium width-50 mrg-tb-10 mobile-input" type="text" ng-model="newContact.fname" placeholder="Title" style="margin-bottom:10px;" required>
-                    <textarea class="input is-medium width-50 mrg-tb-10" type="text" ng-model="newContact.lname" placeholder="Description" style="margin-bottom:10px;" required></textarea>
+                    <textarea class="input is-medium width-50 mrg-tb-10 mobile-input" type="text" ng-model="newContact.lname" placeholder="Description" style="margin-bottom:10px;" required id="desc-textarea"></textarea>
                     
-                    <input class="input is-medium width-50 mrg-tb-10" type="text" ng-model="newContact.phone" placeholder="Due Date" style="margin-bottom:10px;" required> 
+                    <input class="input is-medium width-50 mrg-tb-10 mobile-input" type="text" ng-model="newContact.phone" placeholder="Due Date" style="margin-bottom:10px;" required> 
                          <br>
                           <select class="select is-medium" ng-model="newContact.subject">
                             <option>Select subject</option>
@@ -28,15 +29,15 @@
                         
                    <br>
                    <div>
-                   <h2>Priority</h2>
-                    <input type="radio" ng-model="newContact.priority" name="priority" value="!!!" id="high">High
-                     <input type="radio" ng-model="newContact.priority" name="priority" value="!!" id="medium">Medium
-                     <input type="radio" ng-model="newContact.priority" name="priority" value="!" id="low">Low
+                   <h2 class="title is-3">Priority</h2>
+                    <input type="radio" ng-model="newContact.priority" name="priority" value="!!!" id="high">High!!!
+                     <input type="radio" ng-model="newContact.priority" name="priority" value="!!" id="medium">Medium!!
+                     <input type="radio" ng-model="newContact.priority" name="priority" value="!" id="low">Low!
                    </div>
                    
                     <input ng-disabled="formy_new.$invalid" type="submit" value="Add" class="button is-medium mrg-tb-10">
                      </form>
-            <h2>Home</h2>
+            <h2 class="title is-4">Home</h2>
             <div class="has-text-centered" id="listDiv">
                <div class="level is-mobile" style="background-color:white;" id="list-header">
 
@@ -60,14 +61,15 @@
                            <div class="level-right pddng-10">
                        <input type="text" ng-model="contact.phone" class="todo_input_date">
                                <p>{{contact.subject}}</p><p>{{contact.priority}}</p>    
-                          <a class="" ng-click="removeContact(contact)" style="color:red;">Delete</a>
+                          <a class="fa fa-trash-o" aria-hidden="true" ng-click="removeContact(contact)" style="color:red;"></a>
+                          
                           <button class="button" ng-click="saveContact(contact)" ng-disabled="!formy_edit.$dirty || formy_edit.$submitted" id="save_button">Save</button> 
                            </div>
                         </form> 
                           </li>
                 </ul>
             </div>
-            <h2>School</h2>
+            <h2 class="title is-4">School</h2>
              <div class="has-text-centered" id="listDiv">
                <div class="level is-mobile" style="background-color:white;" id="list-header">
 
@@ -98,7 +100,7 @@
                           </li>
                 </ul>
             </div>
-                  <h2>Work</h2>
+                  <h2 class="title is-4">Work</h2>
              <div class="has-text-centered" id="listDiv">
                <div class="level is-mobile" style="background-color:white;" id="list-header">
 

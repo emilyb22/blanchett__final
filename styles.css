@@ -91,6 +91,14 @@
     color: red;
 }
 
+#desc-textarea{
+    height:100px;
+}
+
+input[name=priority] {    
+margin-left: 40px;
+}    
+
 /**************************************
             Media Queries
 ***************************************/
@@ -102,7 +110,11 @@
 }
 
 @media only screen and (max-width: 500px) {
-    #maindiv {
-        background-color: lightblue;
+    .mobile-input {
+        width: 90%;
     }
+    
+input[name=priority] {    
+margin-left: 10px;
+}    
 }

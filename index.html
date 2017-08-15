@@ -13,200 +13,189 @@
 <body ng-app="contactsApp">
     <div ng-controller="contactsCtrl" class="container hero is-medium is-primary" id="maindiv">
         <div>
-            <h1 class="title is-1 has-text-centered">My Todo List</h1>
-            
+            <div class="bg-white">
+                <h1 class="title is-1 has-text-centered txt-primary">My Todo List</h1>
+                <nav class="has-text-centered">
+                    <a class="txt-primary pddng-5" href="#Home">Home</a>
+                    <a class="txt-primary pddng-5" href="#School">School</a>
+                    <a class="txt-primary pddng-5" href="#Work">Work</a>
+                </nav>
+            </div>
+
+
             <div class="is-center">
-            <input id="new_todo" type="checkbox" class="vis-hidden new-post-tags" type="checkbox" ng-model="checked" aria-label="Toggle ngShow"/>
-            <label for="new_todo" id="new"><i class="fa fa-plus-circle fa-3x" aria-hidden="true"></i></label>
-           </div>
+                <input title="New Todo" id="new_todo" type="checkbox" class="vis-hidden new-post-tags" type="checkbox" ng-model="checked" aria-label="Toggle ngShow" />
+                <label for="new_todo" id="new" title="New Todo"><i class="fa fa-plus-circle fa-3x" aria-hidden="true"></i></label>
+            </div>
             <!--<div id="ck-button">
            <label>
               <input type="checkbox" ng-model="checked" aria-label="Toggle ngShow"><span></span>
            </label>
             </div>-->
-            
+
             <div class="check-element animate-show-hide" ng-show="checked">
-            <form name="formy_new" ng-submit="addContact()" style="" id="new_contact" class="has-text-centered">
-                <input class="input is-medium width-50 mrg-tb-10 mobile-input" type="text" ng-model="newContact.fname" placeholder="Title" style="margin-bottom:10px;" required>
-                <textarea class="input is-medium width-50 mrg-tb-10 mobile-input" type="text" ng-model="newContact.lname" placeholder="Description" style="margin-bottom:10px;" required id="desc-textarea"></textarea>
+                <form name="formy_new" ng-submit="addContact()" id="new_contact" class="has-text-centered width-100">
+                    <input class="input is-medium width-50 mrg-tb-10 mobile-input mrg-btt-10 " type="text" ng-model="newContact.fname" placeholder="Title" required>
+                    <textarea class="input is-medium width-50 mrg-tb-10 mobile-input mrg-btt-10 " type="text" ng-model="newContact.lname" placeholder="Description" required id="desc-textarea"></textarea>
 
-                <input class="input is-medium width-50 mrg-tb-10 mobile-input" type="text" ng-model="newContact.phone" placeholder="Due Date" style="margin-bottom:10px;" required>
-                <br>
-                <h2 class="title is-4">Subject</h2>
-                <select class="select is-medium mrg-btt-5" ng-model="newContact.subject" id="select_box">
-                            <option>Select subject</option>
-                            <option value="work">Work</option>
-                            <option value="home">Home</option>
-                            <option value="school">School</option>
-                          </select>
+                    <input class="input is-medium width-50 mrg-tb-10 mobile-input mrg-btt-10 " type="text" ng-model="newContact.phone" placeholder="Due Date" required>
+                    <br>
 
-                <br>
-                <div class="control-group">
-                    <h2 class="title is-4">Priority</h2>
-                    <label class="control control--radio">High!!!
-		            <input type="radio" ng-model="newContact.priority" name="priority" value="!!!" id="high"/>
-		            <div class="control__indicator"></div>
-	                </label>
+                    <div class="level is-mobile">
+                        <div class="level-left mrg-lft-a">
+                            <div>
+                                <h2 class="title is-4">Subject</h2>
+                                <select class="select is-medium mrg-btt-5" ng-model="newContact.subject" id="select_box">
+                                    <option>Select subject</option>
+                                    <option value="work">Work</option>
+                                    <option value="home">Home</option>
+                                    <option value="school">School</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="level-right mrg-rgt-a">
+                            <div class="control-group">
+                                <h2 class="title is-4">Priority</h2>
 
-                    <label class="control control--radio">Medium!!
-		            <input type="radio" ng-model="newContact.priority" name="priority" value="!!" id="medium"/>
-		            <div class="control__indicator"></div>
-	                </label>
+                                <label class="control control--radio">High!!!
+                                    <input type="radio" ng-model="newContact.priority" name="priority" value="!!!" id="high" />
+                                    <div class="control__indicator"></div>
+                                </label>
 
-                    <label class="control control--radio">Low!
-		            <input type="radio" ng-model="newContact.priority" name="priority" value="!" id="low"type="radio" ng-model="newContact.priority" name="priority" value="!" id="low"/>
-		            <div class="control__indicator"></div>
-	                </label>
+                                <label class="control control--radio">Medium!!
+                                    <input type="radio" ng-model="newContact.priority" name="priority" value="!!" id="medium" />
+                                    <div class="control__indicator"></div>
+                                </label>
 
-                </div>
+                                <label class="control control--radio">Low!
+                                    <input type="radio" ng-model="newContact.priority" name="priority" value="!" id="low" type="radio" ng-model="newContact.priority" name="priority" value="!" id="low" />
+                                    <div class="control__indicator"></div>
+                                </label>
 
-                <input ng-disabled="formy_new.$invalid" type="submit" value="Add" class="button is-medium width-50 mrg-btt-20">
-            </form>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <input ng-disabled="formy_new.$invalid" type="submit" value="Add" class="button is-medium width-50 mrg-btt-20">
+                </form>
             </div>
-            
-            
+
+
             <div class="has-text-centered" id="listDiv">
-                <div class="pddng-10" style="background-color:white;" id="list-header">
+                <div class="pddng-10 bg-white" id="list-header">
                     <h2 class="txt-primary title is-3 mrg-lft-10 ">Home</h2>
                 </div>
 
-                <ul class="has-text-centered">
-                    <li class="todo-list" ng-repeat="contact in contactList | filter:{subject:'home'} | orderBy: 'isCompleted'" ng-class="{'done':contact.isCompleted}">
+                <ul class="has-text-centered" id="home">
+                    <li class="todo-list" ng-repeat="contact in contactList | filter:{subject:'home'} | orderBy: 'isCompleted'">
 
 
-                        <form name="formy_edit" class=" container" style="width:inherit; position: relative; ">
+                        <form name="formy_edit" class="container width-100">
                             <div class="card">
                                 <header class="card-header">
-                                   <div style="padding-top: 10px;padding-left: 10px;">
-                                   <span class="priority" style="padding: 1px 0px;">{{contact.priority}}</span></div>
-                                   <div style="padding-top: 7.5px;padding-bottom: 5px;"> 
-                                      
-                                       <input type="text" ng-model="contact.fname" class="todo_input_header">
-                                       <input type="text" ng-model="contact.phone" class="todo_input_date" id="dueDate">
-                                    
+                                    <p class="card-header-title">
+                                        <span class="priority pddng-rgt-5">{{contact.priority}}</span>
+                                        <input type="text" ng-model="contact.fname" class="todo_input_header" ng-class="{'done':contact.isCompleted}">
+                                    </p>
+                                    <div class="card-header-icon">
+                                        <input class="checkbox" type="checkbox" ng-model="contact.isCompleted" id="doneCheck">
                                     </div>
-                                   <div style="padding-top: 10px;padding-right: 10px">
-                                      <input class="checkbox" type="checkbox" ng-model="contact.isCompleted" id="doneCheck" style="padding: 1px 0px;">
-                                   </div>
-                                    
                                 </header>
-                                <div class="card-content" style="padding: 1rem;">
-                                    <div class="content">
-                                      <div>
-                                          <input type="text" ng-model="contact.lname" class="todo_input_body">
-                                      </div>
+                                <div class="card-content">
+                                    <div class="content level is-mobile">
+                                        <div class="level-right">
+                                            <label for="Comment"></label>
+                                            <input type="text" ng-model="contact.lname" class="todo_input_body" id="Comment" ng-class="{'done':contact.isCompleted}">
+                                        </div>
+                                        <div class="level-left">
+                                            <label for="dueDate" class="pddng-rgt-5">Due:</label>
+                                            <input type="text" ng-model="contact.phone" class="todo_input_date width-60" id="dueDate" ng-class="{'done':contact.isCompleted}">
+                                        </div>
                                     </div>
                                 </div>
                                 <footer class="card-footer">
-                                    <a class="card-footer-item" style="padding:0.5rem;" ng-click="saveContact(contact)" ng-disabled="!formy_edit.$dirty || formy_edit.$submitted" id="save_button"><span class="fa fa-check fa-1x pddng-rgt-10"></span>Save</a>
-                                    <a class="card-footer-item" style="padding:0.5rem;" ng-click="removeContact(contact)"><span class="fa fa-trash-o fa-1x pddng-rgt-10"></span>Delete</a>
+
+                                    <button class="card-footer-item" ng-click="saveContact(contact)" ng-disabled="!formy_edit.$dirty || formy_edit.$submitted" id="save_button"><span class="fa fa-check fa-1x pddng-rgt-10"></span>Save</button>
+                                    <a class="card-footer-item" ng-click="removeContact(contact)"><span class="fa fa-trash-o fa-1x pddng-rgt-10"></span>Delete</a>
                                 </footer>
                             </div>
-                            <!--<table>
-                                <tr>
-                                    <th>
-                                        <p class="priority">{{contact.priority}}</p>
-                                        <input class="checkbox" type="checkbox" ng-model="contact.isCompleted" id="doneCheck">
-                                        <input type="text" ng-model="contact.fname" class="todo_input_header">
-                                        <input type="text" ng-model="contact.lname" class="todo_input_body">
-                                    </th>
-                                    <th>
-                                        <input type="text" ng-model="contact.phone" class="todo_input_date">
-                                    </th>
-                                </tr>
-                                <a class="fa fa-trash-o fa-2x" aria-hidden="true" ng-click="removeContact(contact)" style="color:red;"></a>
-                                <button class="button" ng-click="saveContact(contact)" ng-disabled="!formy_edit.$dirty || formy_edit.$submitted" id="save_button">Save</button>
-                            </table>-->
-                            <!--<div class="pddng-10">
-                       <p class="priority">{{contact.priority}}</p>
-                       <input class="checkbox" type="checkbox" ng-model="contact.isCompleted" id="doneCheck">
-                       <input type="text" ng-model="contact.fname" class="todo_input_header">
-                          <input type="text" ng-model="contact.lname" class="todo_input_body">
-                           </div>
-                           <div class="pddng-10">
-                       <input type="text" ng-model="contact.phone" class="todo_input_date"> 
-                          
-                          <div class="edit-buttons">
-                          <a class="fa fa-trash-o fa-2x" aria-hidden="true" ng-click="removeContact(contact)" style="color:red;"></a>
-                          <button class="button" ng-click="saveContact(contact)" ng-disabled="!formy_edit.$dirty || formy_edit.$submitted" id="save_button">Save</button> 
-                          </div>
-                           </div>-->
                         </form>
                     </li>
                 </ul>
             </div>
             <div class="has-text-centered" id="listDiv">
-                <div class="pddng-10" style="background-color:white;" id="list-header">
+                <div class="pddng-10 bg-white" id="list-header">
                     <h2 class="txt-primary title is-3 mrg-lft-10 ">School</h2>
                 </div>
 
-                <ul class="has-text-centered">
+                <ul class="has-text-centered" id="School">
                     <li class="todo-list" ng-repeat="contact in contactList | filter:{subject:'school'} | orderBy: 'isCompleted'" ng-class="{'done':contact.isCompleted}">
-                        <form name="formy_edit" class="level container" style="width:inherit; position: relative; ">
-                         <div class="card">
+                        <form name="formy_edit" class="container width-100">
+                            <div class="card">
                                 <header class="card-header">
-                                   <div style="padding-top: 10px;padding-left: 10px;">
-                                   <span class="priority" style="padding: 1px 0px;">{{contact.priority}}</span></div>
-                                   <div style="padding-top: 7.5px;padding-bottom: 5px;"> 
-                                      
-                                       <input type="text" ng-model="contact.fname" class="todo_input_header">
-                                       <input type="text" ng-model="contact.phone" class="todo_input_date" id="dueDate">
-                                    
+                                    <p class="card-header-title">
+                                        <span class="priority pddng-rgt-5">{{contact.priority}}</span>
+                                        <input type="text" ng-model="contact.fname" class="todo_input_header">
+                                    </p>
+                                    <div class="card-header-icon">
+                                        <input class="checkbox" type="checkbox" ng-model="contact.isCompleted" id="doneCheck">
                                     </div>
-                                   <div style="padding-top: 10px;padding-right: 10px">
-                                      <input class="checkbox" type="checkbox" ng-model="contact.isCompleted" id="doneCheck" style="padding: 1px 0px;">
-                                   </div>
-                                    
                                 </header>
-                                <div class="card-content" style="padding: 1rem;">
-                                    <div class="content">
-                                      <div>
-                                          <input type="text" ng-model="contact.lname" class="todo_input_body">
-                                      </div>
+                                <div class="card-content">
+                                    <div class="content level is-mobile">
+                                        <div class="level-right">
+                                            <label for="Comment"></label>
+                                            <input type="text" ng-model="contact.lname" class="todo_input_body" id="Comment">
+                                        </div>
+                                        <div class="level-left">
+                                            <label for="dueDate" class="pddng-rgt-5">Due:</label>
+                                            <input type="text" ng-model="contact.phone" class="todo_input_date width-60" id="dueDate">
+                                        </div>
                                     </div>
                                 </div>
                                 <footer class="card-footer">
-                                    <a class="card-footer-item" style="padding:0.5rem;" ng-click="saveContact(contact)" ng-disabled="!formy_edit.$dirty || formy_edit.$submitted" id="save_button"><span class="fa fa-check fa-1x pddng-rgt-10"></span>Save</a>
-                                    <a class="card-footer-item" style="padding:0.5rem;" ng-click="removeContact(contact)"><span class="fa fa-trash-o fa-1x pddng-rgt-10"></span>Delete</a>
+                                    <button class="card-footer-item" ng-click="saveContact(contact)" ng-disabled="!formy_edit.$dirty || formy_edit.$submitted" id="save_button"><span class="fa fa-check fa-1x pddng-rgt-10"></span>Save</button>
+                                    <a class="card-footer-item" ng-click="removeContact(contact)"><span class="fa fa-trash-o fa-1x pddng-rgt-10"></span>Delete</a>
                                 </footer>
                             </div>
                         </form>
                     </li>
                 </ul>
             </div>
-           <div class="has-text-centered" id="listDiv">
-                <div class="pddng-10" style="background-color:white;" id="list-header">
+            <div class="has-text-centered" id="listDiv">
+                <div class="pddng-10 bg-white" id="list-header">
                     <h2 class="txt-primary title is-3 mrg-lft-10 ">Work</h2>
                 </div>
 
-                <ul class="has-text-centered">
+                <ul class="has-text-centered" id="Work">
                     <li class="todo-list" ng-repeat="contact in contactList | filter:{subject:'work'} | orderBy: 'isCompleted'" ng-class="{'done':contact.isCompleted}">
-                        <form name="formy_edit" class="level container" style="width:inherit; position: relative; ">
-                        <div class="card">
+                        <form name="formy_edit" class="container width-100">
+                            <div class="card">
                                 <header class="card-header">
-                                   <div style="padding-top: 10px;padding-left: 10px;">
-                                   <span class="priority" style="padding: 1px 0px;">{{contact.priority}}</span></div>
-                                   <div style="padding-top: 7.5px;padding-bottom: 5px;"> 
-                                      
-                                       <input type="text" ng-model="contact.fname" class="todo_input_header">
-                                       <input type="text" ng-model="contact.phone" class="todo_input_date" id="dueDate">
-                                    
+                                    <p class="card-header-title">
+                                        <span class="priority pddng-rgt-5">{{contact.priority}}</span>
+                                        <input type="text" ng-model="contact.fname" class="todo_input_header">
+                                    </p>
+                                    <div class="card-header-icon">
+                                        <input class="checkbox" type="checkbox" ng-model="contact.isCompleted" id="doneCheck">
                                     </div>
-                                   <div style="padding-top: 10px;padding-right: 10px">
-                                      <input class="checkbox" type="checkbox" ng-model="contact.isCompleted" id="doneCheck" style="padding: 1px 0px;">
-                                   </div>
-                                    
                                 </header>
-                                <div class="card-content" style="padding: 1rem;">
-                                    <div class="content">
-                                      <div>
-                                          <input type="text" ng-model="contact.lname" class="todo_input_body">
-                                      </div>
+                                <div class="card-content">
+                                    <div class="content level is-mobile">
+                                        <div class="level-right">
+                                            <label for="Comment"></label>
+                                            <input type="text" ng-model="contact.lname" class="todo_input_body" id="Comment">
+                                        </div>
+                                        <div class="level-left">
+                                            <label for="dueDate" class="pddng-rgt-5">Due:</label>
+                                            <input type="text" ng-model="contact.phone" class="todo_input_date width-60" id="dueDate">
+                                        </div>
                                     </div>
                                 </div>
                                 <footer class="card-footer">
-                                    <a class="card-footer-item" style="padding:0.5rem;" ng-click="saveContact(contact)" ng-disabled="!formy_edit.$dirty || formy_edit.$submitted" id="save_button"><span class="fa fa-check fa-1x pddng-rgt-10"></span>Save</a>
-                                    <a class="card-footer-item" style="padding:0.5rem;" ng-click="removeContact(contact)"><span class="fa fa-trash-o fa-1x pddng-rgt-10"></span>Delete</a>
+                                    <button class="card-footer-item" ng-click="saveContact(contact)" ng-disabled="!formy_edit.$dirty || formy_edit.$submitted" id="save_button"><span class="fa fa-check fa-1x pddng-rgt-10"></span>Save</button>
+                                    <a class="card-footer-item" ng-click="removeContact(contact)"><span class="fa fa-trash-o fa-1x pddng-rgt-10"></span>Delete</a>
                                 </footer>
                             </div>
                         </form>

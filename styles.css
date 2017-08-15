@@ -1,55 +1,114 @@
 /****************************************
         Utils 
 ****************************************/
-.width-50{
-    width:50%;
-}
-.width-30{
-    width:30%;
-}
-.width-10{
-    width:10%;
-}
-.mrg-tb-10{
-    margin: 10px 0;
-}
-.mrg-tb-5{
-    margin: 5px 0;
-}
-.mrg-lft-10{
-    margin-left: 10px;;
+
+
+/****************************************
+        Width
+****************************************/
+
+.width-100 {
+    width: 100%;
 }
 
-.mrg-btt-5{
+.width-60 {
+    width: 60%;
+}
+
+.width-50 {
+    width: 50%;
+}
+
+.width-30 {
+    width: 30%;
+}
+
+.width-10 {
+    width: 10%;
+}
+
+
+/****************************************
+                Spacing 
+****************************************/
+
+.mrg-tb-10 {
+    margin: 10px 0;
+}
+
+.mrg-tb-5 {
+    margin: 5px 0;
+}
+
+.mrg-lft-10 {
+    margin-left: 10px;
+}
+
+.mrg-btt-5 {
     margin-bottom: 5px;
 }
 
-.mrg-btt-20{
+.mrg-btt-20 {
     margin-bottom: 20px;
 }
-.pddng-5{
-    padding:5px;
-} 
-.pddng-10{
-    padding:10px;
-}
-.pddng-rgt-10{
-    padding-right:5px;
+
+.mrg-btt-10 {
+    margin-bottom: 10px;
 }
 
-.txt-primary{
+.mrg-lft-a {
+    margin-left: auto;
+}
+
+.mrg-rgt-a {
+    margin-right: auto;
+}
+
+.pddng-5 {
+    padding: 5px;
+}
+
+.pddng-10 {
+    padding: 10px;
+}
+
+.pddng-rgt-5 {
+    padding-right: 5px;
+}
+
+.pddng-rgt-10 {
+    padding-right: 10px;
+}
+
+
+/***************************************
+                Colors
+***************************************/
+
+.txt-primary {
     color: #00d1b2 !important;
 }
 
-.is-center{
-        text-align: center;
+.bg-white {
+    background-color: #fff;
 }
+
+
+/***************************************
+        Text/Formating
+***************************************/
+
+.is-center {
+    text-align: center;
+}
+
 
 /***************************************
         Template
 ***************************************/
-#maindiv{
-        height: 100%;
+
+#maindiv {
+    height: 100%;
 }
 
 .level:not(:last-child) {
@@ -61,27 +120,47 @@
         Individual Styles
 ***************************************/
 
+.card-header {
+    box-shadow: none;
+}
+
+#save_button:disabled {
+    color: black;
+    background-color: white;
+}
+
+#save_button {
+    background-color: #00d1b2;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-right: solid 2px rgba(10, 10, 10, .1);
+}
+
+#save_button {}
+
 .animate-show-hide.ng-hide {
-  opacity: 0;
+    opacity: 0;
 }
 
 .animate-show-hide.ng-hide-add,
 .animate-show-hide.ng-hide-remove {
-  transition: all linear 0.5s;
+    transition: all linear 0.5s;
 }
 
-
-.done{
+.done {
     text-decoration: line-through;
     color: red;
 }
-#listDiv{
-    border:white solid 1px;
-    width:65%;
-    margin: 0 auto; 
-    margin-top:30px;
-    margin-bottom:20px;
-    border-radius:3px;
+
+#listDiv {
+    border: white solid 1px;
+    width: 65%;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    border-radius: 3px;
 }
 
 .todo_input_header {
@@ -89,125 +168,97 @@
     font-size: 1.4rem;
     color: #00d1b2;
     border-color: #dbdbdb;
-    font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .todo_input_body {
     border: none;
     width: 100%;
     font-size: 1rem;
-    color: #00d1b2;
     border-color: #dbdbdb;
-    font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-.todo_input_date{
+.todo_input_date {
     border: none;
     border-color: #dbdbdb;
     font-size: 1rem;
-    font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding-top: 0px;
 }
 
-.edit-buttons{
+.edit-buttons {
     text-align: right;
 }
 
-.todo-list{
+.todo-list {
     border-bottom: 1px solid white;
 }
 
-.done{
+.done {
     text-decoration: line-through;
     color: red;
 }
 
-#desc-textarea{
-    height:100px;
+#desc-textarea {
+    height: 100px;
 }
 
-.priority{
+.priority {
     display: inline;
     color: red;
     font-weight: bold;
     font-size: larger;
-    
 }
 
-table td, table th {
+table td,
+table th {
     vertical-align: initial;
 }
 
-
-/*
-#ck-button {
-    margin:4px;
-    background-color:#EFEFEF;
-    border-radius:4px;
-    border:1px solid #D0D0D0;
-    overflow:auto;
-    float:left;
-}
-
-#ck-button:hover {
-    background:red;
-}
-
-#ck-button label {
-    float:left;
-    width:4.0em;
-}
-
-#ck-button label span {
-    text-align:center;
-    padding:3px 0px;
-    display:block;
-}
-
-#ck-button label input {
-    position:absolute;
-    top:-20px;
-}
-
-#ck-button input:checked + span {
-    background-color:#911;
-    color:#fff;
-}*/
-
-
 .vis-hidden {
-	border: 0;
-	clip: rect(0 0 0 0);
-	height: 1px;
-	margin: -1px;
-	overflow: hidden;
-	padding: 0;
-	position: absolute;
-	width: 1px;
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
 }
 
 .new {
-  margin: 10px;
-  padding: 5px;
-  border: 1px solid gray;
+    margin: 10px;
+    padding: 5px;
+    border: 1px solid gray;
 }
 
 #chk_aliens:focus + label {
-  border-color: blue;
+    border-color: blue;
 }
 
 #chk_aliens:checked + label {
-  border-color: red;
+    border-color: red;
 }
 
 #chk_aliens:focus:checked + label {
-  border-color: green;
+    border-color: green;
+}
+
+.card-footer-item:not(:last-child) {
+    border-right: none;
+}
+
+.card-footer {
+    border-top: none;
 }
 
 
 /**************************************
             Select Box
 ***************************************/
-#select_box{
+
+#select_box {
     align-items: center;
     border: 1px solid transparent;
     border-radius: 3px;
@@ -221,98 +272,108 @@ table td, table th {
     border-color: #dbdbdb;
     color: #363636;
     cursor: pointer;
-
-
 }
+
+
 /**************************************
             Radio Buttons
 ***************************************/
+
 .control-group {
-	margin: 10px;
-	vertical-align: top;
+    margin: 10px;
+    vertical-align: top;
 }
 
 .control {
-	font-size: 20px;
-	display: block;
-	margin-bottom: 15px;
-	padding-left: 40px;
-	cursor: pointer;
-    
+    font-size: 20px;
+    display: block;
+    margin-bottom: 15px;
+    padding-left: 40px;
+    cursor: pointer;
+    text-align: center;
 }
 
 .control input {
-	position: absolute;
-	z-index: -1;
-	opacity: 0;
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
 }
 
 .control__indicator {
-	position: absolute;
-	top: 2px;
-	left: 0;
-	width: 30px;
-	height: 30px;
-	background: #e6e6e6;
+    position: absolute;
+    top: 2px;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    background: #e6e6e6;
 }
 
 .control--radio .control__indicator {
-	border-radius: 50%;
+    border-radius: 50%;
 }
+
 
 /* Hover and focus states */
+
 .control:hover input ~ .control__indicator,
 .control input:focus ~ .control__indicator {
-	background: #ccc;
+    background: #ccc;
 }
+
 
 /* Checked state */
+
 .control input:checked ~ .control__indicator {
-	background: #007F6D;
+    background: #007F6D;
 }
+
 
 /* Check mark */
+
 .control__indicator:after {
-	position: absolute;
-	display: none;
-	content: '';
+    position: absolute;
+    display: none;
+    content: '';
 }
 
+
 /* Show check mark */
+
 .control input:checked ~ .control__indicator:after {
-	display: block;
+    display: block;
 }
 
 
 /* Radio button inner circle */
+
 .control--radio .control__indicator:after {
-	top: 10px;
-	left: 10px;
-	width: 10px;
-	height: 10px;
-	border-radius: 50%;
-	background: #fff;
+    top: 10px;
+    left: 10px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #fff;
 }
+
 
 /**************************************
             Media Queries
 ***************************************/
 
 @media only screen and (max-width: 690px) {
-    #listDiv{
-    width:95%;
-}
+    #listDiv {
+        width: 95%;
+    }
 }
 
 @media only screen and (max-width: 500px) {
     .mobile-input {
         width: 90%;
     }
-    
-input[name=priority] {    
-margin-left: 10px;
-}    
-#select_box{
-        width: 90vw;
+    input[name=priority] {
+        margin-left: 10px;
+    }
+    #select_box {
+        width: 40vw;
     }
 }

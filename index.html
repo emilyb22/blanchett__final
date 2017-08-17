@@ -4,14 +4,15 @@
 <head>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.2/css/bulma.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
-    <link href="styles.css" rel="stylesheet">
+
+    <link href="styles.css" rel="stylesheet" />
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To Do : An Emily Blanchett Application</title>
 </head>
 
 <body ng-app="contactsApp">
-    <div ng-controller="contactsCtrl" class="container hero is-medium is-primary" id="maindiv">
+    <div ng-controller="contactsCtrl" class="hero is-medium is-primary" id="maindiv">
         <div>
             <div class="bg-white">
                 <h1 class="title is-1 has-text-centered txt-primary">My Todo List</h1>
@@ -81,126 +82,127 @@
                 </form>
             </div>
 
+            <div class="columns mrg-10 is-desktop">
+                <div class="column is-one-third has-text-centered" id="listDiv">
+                    <div class="pddng-10 bg-white" id="list-header">
+                        <h2 class="txt-primary title is-3 mrg-lft-10 ">Home</h2>
+                    </div>
 
-            <div class="has-text-centered" id="listDiv">
-                <div class="pddng-10 bg-white" id="list-header">
-                    <h2 class="txt-primary title is-3 mrg-lft-10 ">Home</h2>
-                </div>
-
-                <ul class="has-text-centered" id="home">
-                    <li class="todo-list" ng-repeat="contact in contactList | filter:{subject:'home'} | orderBy: 'isCompleted'">
+                    <ul class="has-text-centered" id="home">
+                        <li class="todo-list" ng-repeat="contact in contactList | filter:{subject:'home'} | orderBy: 'isCompleted'">
 
 
-                        <form name="formy_edit" class="container width-100">
-                            <div class="card">
-                                <header class="card-header">
-                                    <p class="card-header-title">
-                                        <span class="priority pddng-rgt-5">{{contact.priority}}</span>
-                                        <input type="text" ng-model="contact.fname" class="todo_input_header" ng-class="{'done':contact.isCompleted}">
-                                    </p>
-                                    <div class="card-header-icon">
-                                        <input class="checkbox" type="checkbox" ng-model="contact.isCompleted" id="doneCheck">
-                                    </div>
-                                </header>
-                                <div class="card-content">
-                                    <div class="content level is-mobile">
-                                        <div class="level-right">
-                                            <label for="Comment"></label>
-                                            <input type="text" ng-model="contact.lname" class="todo_input_body" id="Comment" ng-class="{'done':contact.isCompleted}">
+                            <form name="formy_edit" class="container width-100">
+                                <div class="card">
+                                    <header class="card-header">
+                                        <p class="card-header-title">
+                                            <span class="priority pddng-rgt-5">{{contact.priority}}</span>
+                                            <input type="text" ng-model="contact.fname" class="todo_input_header" ng-class="{'done':contact.isCompleted}">
+                                        </p>
+                                        <div class="card-header-icon">
+                                            <input class="checkbox" type="checkbox" ng-model="contact.isCompleted" id="doneCheck">
                                         </div>
-                                        <div class="level-left">
-                                            <label for="dueDate" class="pddng-rgt-5">Due:</label>
-                                            <input type="text" ng-model="contact.phone" class="todo_input_date width-60" id="dueDate" ng-class="{'done':contact.isCompleted}">
+                                    </header>
+                                    <div class="card-content">
+                                        <div class="content level is-mobile">
+                                            <div class="level-right">
+                                                <label for="Comment"></label>
+                                                <input type="text" ng-model="contact.lname" class="todo_input_body" id="Comment" ng-class="{'done':contact.isCompleted}">
+                                            </div>
+                                            <div class="level-left">
+                                                <label for="dueDate" class="pddng-rgt-5">Due:</label>
+                                                <input type="text" ng-model="contact.phone" class="todo_input_date width-60" id="dueDate" ng-class="{'done':contact.isCompleted}">
+                                            </div>
                                         </div>
                                     </div>
+                                    <footer class="card-footer">
+
+                                        <button class="card-footer-item" ng-click="saveContact(contact)" ng-disabled="!formy_edit.$dirty || formy_edit.$submitted" id="save_button"><span class="fa fa-check fa-1x pddng-rgt-10"></span>Save</button>
+                                        <a class="card-footer-item" ng-click="removeContact(contact)"><span class="fa fa-trash-o fa-1x pddng-rgt-10"></span>Delete</a>
+                                    </footer>
                                 </div>
-                                <footer class="card-footer">
-
-                                    <button class="card-footer-item" ng-click="saveContact(contact)" ng-disabled="!formy_edit.$dirty || formy_edit.$submitted" id="save_button"><span class="fa fa-check fa-1x pddng-rgt-10"></span>Save</button>
-                                    <a class="card-footer-item" ng-click="removeContact(contact)"><span class="fa fa-trash-o fa-1x pddng-rgt-10"></span>Delete</a>
-                                </footer>
-                            </div>
-                        </form>
-                    </li>
-                </ul>
-            </div>
-            <div class="has-text-centered" id="listDiv">
-                <div class="pddng-10 bg-white" id="list-header">
-                    <h2 class="txt-primary title is-3 mrg-lft-10 ">School</h2>
+                            </form>
+                        </li>
+                    </ul>
                 </div>
+                <div class="column is-one-third has-text-centered" id="listDiv">
+                    <div class="pddng-10 bg-white" id="list-header">
+                        <h2 class="txt-primary title is-3 mrg-lft-10 ">School</h2>
+                    </div>
 
-                <ul class="has-text-centered" id="School">
-                    <li class="todo-list" ng-repeat="contact in contactList | filter:{subject:'school'} | orderBy: 'isCompleted'" ng-class="{'done':contact.isCompleted}">
-                        <form name="formy_edit" class="container width-100">
-                            <div class="card">
-                                <header class="card-header">
-                                    <p class="card-header-title">
-                                        <span class="priority pddng-rgt-5">{{contact.priority}}</span>
-                                        <input type="text" ng-model="contact.fname" class="todo_input_header">
-                                    </p>
-                                    <div class="card-header-icon">
-                                        <input class="checkbox" type="checkbox" ng-model="contact.isCompleted" id="doneCheck">
-                                    </div>
-                                </header>
-                                <div class="card-content">
-                                    <div class="content level is-mobile">
-                                        <div class="level-right">
-                                            <label for="Comment"></label>
-                                            <input type="text" ng-model="contact.lname" class="todo_input_body" id="Comment">
+                    <ul class="has-text-centered" id="School">
+                        <li class="todo-list" ng-repeat="contact in contactList | filter:{subject:'school'} | orderBy: 'isCompleted'" ng-class="{'done':contact.isCompleted}">
+                            <form name="formy_edit" class="container width-100">
+                                <div class="card">
+                                    <header class="card-header">
+                                        <p class="card-header-title">
+                                            <span class="priority pddng-rgt-5">{{contact.priority}}</span>
+                                            <input type="text" ng-model="contact.fname" class="todo_input_header">
+                                        </p>
+                                        <div class="card-header-icon">
+                                            <input class="checkbox" type="checkbox" ng-model="contact.isCompleted" id="doneCheck">
                                         </div>
-                                        <div class="level-left">
-                                            <label for="dueDate" class="pddng-rgt-5">Due:</label>
-                                            <input type="text" ng-model="contact.phone" class="todo_input_date width-60" id="dueDate">
+                                    </header>
+                                    <div class="card-content">
+                                        <div class="content level is-mobile">
+                                            <div class="level-right">
+                                                <label for="Comment"></label>
+                                                <input type="text" ng-model="contact.lname" class="todo_input_body" id="Comment">
+                                            </div>
+                                            <div class="level-left">
+                                                <label for="dueDate" class="pddng-rgt-5">Due:</label>
+                                                <input type="text" ng-model="contact.phone" class="todo_input_date width-60" id="dueDate">
+                                            </div>
                                         </div>
                                     </div>
+                                    <footer class="card-footer">
+                                        <button class="card-footer-item" ng-click="saveContact(contact)" ng-disabled="!formy_edit.$dirty || formy_edit.$submitted" id="save_button"><span class="fa fa-check fa-1x pddng-rgt-10"></span>Save</button>
+                                        <a class="card-footer-item" ng-click="removeContact(contact)"><span class="fa fa-trash-o fa-1x pddng-rgt-10"></span>Delete</a>
+                                    </footer>
                                 </div>
-                                <footer class="card-footer">
-                                    <button class="card-footer-item" ng-click="saveContact(contact)" ng-disabled="!formy_edit.$dirty || formy_edit.$submitted" id="save_button"><span class="fa fa-check fa-1x pddng-rgt-10"></span>Save</button>
-                                    <a class="card-footer-item" ng-click="removeContact(contact)"><span class="fa fa-trash-o fa-1x pddng-rgt-10"></span>Delete</a>
-                                </footer>
-                            </div>
-                        </form>
-                    </li>
-                </ul>
-            </div>
-            <div class="has-text-centered" id="listDiv">
-                <div class="pddng-10 bg-white" id="list-header">
-                    <h2 class="txt-primary title is-3 mrg-lft-10 ">Work</h2>
+                            </form>
+                        </li>
+                    </ul>
                 </div>
+                <div class="column is-one-third has-text-centered" id="listDiv">
+                    <div class="pddng-10 bg-white" id="list-header">
+                        <h2 class="txt-primary title is-3 mrg-lft-10 ">Work</h2>
+                    </div>
 
-                <ul class="has-text-centered" id="Work">
-                    <li class="todo-list" ng-repeat="contact in contactList | filter:{subject:'work'} | orderBy: 'isCompleted'" ng-class="{'done':contact.isCompleted}">
-                        <form name="formy_edit" class="container width-100">
-                            <div class="card">
-                                <header class="card-header">
-                                    <p class="card-header-title">
-                                        <span class="priority pddng-rgt-5">{{contact.priority}}</span>
-                                        <input type="text" ng-model="contact.fname" class="todo_input_header">
-                                    </p>
-                                    <div class="card-header-icon">
-                                        <input class="checkbox" type="checkbox" ng-model="contact.isCompleted" id="doneCheck">
-                                    </div>
-                                </header>
-                                <div class="card-content">
-                                    <div class="content level is-mobile">
-                                        <div class="level-right">
-                                            <label for="Comment"></label>
-                                            <input type="text" ng-model="contact.lname" class="todo_input_body" id="Comment">
+                    <ul class="has-text-centered" id="Work">
+                        <li class="todo-list" ng-repeat="contact in contactList | filter:{subject:'work'} | orderBy: 'isCompleted'" ng-class="{'done':contact.isCompleted}">
+                            <form name="formy_edit" class="container width-100">
+                                <div class="card">
+                                    <header class="card-header">
+                                        <p class="card-header-title">
+                                            <span class="priority pddng-rgt-5">{{contact.priority}}</span>
+                                            <input type="text" ng-model="contact.fname" class="todo_input_header">
+                                        </p>
+                                        <div class="card-header-icon">
+                                            <input class="checkbox" type="checkbox" ng-model="contact.isCompleted" id="doneCheck">
                                         </div>
-                                        <div class="level-left">
-                                            <label for="dueDate" class="pddng-rgt-5">Due:</label>
-                                            <input type="text" ng-model="contact.phone" class="todo_input_date width-60" id="dueDate">
+                                    </header>
+                                    <div class="card-content">
+                                        <div class="content level is-mobile">
+                                            <div class="level-right">
+                                                <label for="Comment"></label>
+                                                <input type="text" ng-model="contact.lname" class="todo_input_body" id="Comment">
+                                            </div>
+                                            <div class="level-left">
+                                                <label for="dueDate" class="pddng-rgt-5">Due:</label>
+                                                <input type="text" ng-model="contact.phone" class="todo_input_date width-60" id="dueDate">
+                                            </div>
                                         </div>
                                     </div>
+                                    <footer class="card-footer">
+                                        <button class="card-footer-item" ng-click="saveContact(contact)" ng-disabled="!formy_edit.$dirty || formy_edit.$submitted" id="save_button"><span class="fa fa-check fa-1x pddng-rgt-10"></span>Save</button>
+                                        <a class="card-footer-item" ng-click="removeContact(contact)"><span class="fa fa-trash-o fa-1x pddng-rgt-10"></span>Delete</a>
+                                    </footer>
                                 </div>
-                                <footer class="card-footer">
-                                    <button class="card-footer-item" ng-click="saveContact(contact)" ng-disabled="!formy_edit.$dirty || formy_edit.$submitted" id="save_button"><span class="fa fa-check fa-1x pddng-rgt-10"></span>Save</button>
-                                    <a class="card-footer-item" ng-click="removeContact(contact)"><span class="fa fa-trash-o fa-1x pddng-rgt-10"></span>Delete</a>
-                                </footer>
-                            </div>
-                        </form>
-                    </li>
-                </ul>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
         <footer class="title is-5 has-text-centered">

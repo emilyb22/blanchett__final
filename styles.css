@@ -64,6 +64,11 @@
     margin-right: auto;
 }
 
+.mrg-10 {
+    margin: 10px;
+    ;
+}
+
 .pddng-5 {
     padding: 5px;
 }
@@ -89,8 +94,18 @@
     color: #00d1b2 !important;
 }
 
+body {
+    color: #00d1b2;
+    min-height: 100%;
+}
+
 .bg-white {
     background-color: #fff;
+}
+
+html,
+body {
+    overflow: auto;
 }
 
 
@@ -108,7 +123,7 @@
 ***************************************/
 
 #maindiv {
-    height: 100%;
+    min-height: 100vh;
 }
 
 .level:not(:last-child) {
@@ -155,8 +170,6 @@
 }
 
 #listDiv {
-    border: white solid 1px;
-    width: 65%;
     margin: 0 auto;
     margin-top: 30px;
     margin-bottom: 20px;
@@ -360,13 +373,22 @@ table th {
             Media Queries
 ***************************************/
 
-@media only screen and (max-width: 690px) {
+@media only screen and (max-width: 1163px) {
     #listDiv {
-        width: 95%;
+        width: 55%;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    #listDiv {
+        width: 90%;
     }
 }
 
 @media only screen and (max-width: 500px) {
+    #listDiv {
+        width: 100%;
+    }
     .mobile-input {
         width: 90%;
     }
@@ -375,5 +397,17 @@ table th {
     }
     #select_box {
         width: 40vw;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .todo_input_header {
+        font-size: 25px;
+    }
+}
+
+@media screen and (max-width: 1150px) {
+    .columns.is-desktop {
+        display: block;
     }
 }

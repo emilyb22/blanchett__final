@@ -150,7 +150,7 @@ body {
     border: none;
     cursor: pointer;
     font-size: 16px;
-    border-right: solid 2px rgba(10, 10, 10, .1);
+    border-right: 1px solid #dbdbdb;
 }
 
 #save_button {}
@@ -256,10 +256,6 @@ table th {
 
 #chk_aliens:focus:checked + label {
     border-color: green;
-}
-
-.card-footer-item:not(:last-child) {
-    border-right: none;
 }
 
 .card-footer {

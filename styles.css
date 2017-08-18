@@ -94,6 +94,10 @@
     color: #00d1b2 !important;
 }
 
+.txt-red {
+    color: red !important;
+}
+
 body {
     color: #00d1b2;
     min-height: 100%;
@@ -115,6 +119,14 @@ body {
 
 .is-center {
     text-align: center;
+}
+
+.is-left {
+    text-align: left;
+}
+
+.is-right {
+    text-align: right;
 }
 
 
@@ -369,21 +381,15 @@ table th {
             Media Queries
 ***************************************/
 
-@media only screen and (max-width: 1163px) {
+@media only screen and (max-width: 820px) {
     #listDiv {
-        width: 55%;
-    }
-}
-
-@media only screen and (max-width: 800px) {
-    #listDiv {
-        width: 90%;
+        width: 90% !important;
     }
 }
 
 @media only screen and (max-width: 500px) {
     #listDiv {
-        width: 100%;
+        width: 100% !important;
     }
     .mobile-input {
         width: 90%;
@@ -394,6 +400,9 @@ table th {
     #select_box {
         width: 40vw;
     }
+    .card-header-title {
+        width: 50%;
+    }
 }
 
 @media only screen and (min-width: 1200px) {
@@ -402,8 +411,21 @@ table th {
     }
 }
 
-@media screen and (max-width: 1150px) {
+@media screen and (max-width: 1300px) {
     .columns.is-desktop {
         display: block;
+    }
+    #listDiv {
+        width: 55%;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    #card_content_mobile {
+        display: block;
+    }
+    #cart_date {
+        display: block;
+        text-align: left;
     }
 }
